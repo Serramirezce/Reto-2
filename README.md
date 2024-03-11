@@ -3,38 +3,52 @@ Repositorio para el Reto 2 del curso de Programación Orientada a Objetos.
 
 ```mermaid
 classDiagram
-    Pieza <|-- Torre
-    Pieza <|-- Alfil
-    Pieza <|-- Rey
-    Pieza <|-- Caballo
-    Pieza <|-- Peón
-    Pieza <|-- Reina
-    class Pieza{
-      +JuegoAjedrez juego_ajedrez
-      +color
+    class TiendaFisica {
+        ubicacion: String
+        productosEnExhibicion: List<Producto>
+        clientes: List<Cliente>
+        comprasRealizadas: List<Compra>
+        ---
+        agregarProducto()
+        eliminarProducto()
+        registrarCliente()
+        procesarCompra()
+        generarReportes()
     }
-    class Torre{
-      +forma
-      +mover(tablero)
+
+    class Producto {
+        ID: int
+        marca: String
+        modelo: String
+        talla: String
+        color: String
+        precio: float
+        cantidadStock: int
+        ---
+        actualizarStock()
+        verificarDisponibilidad()
     }
-    class Alfil{
-      +forma
-      +mover(tablero)
+
+    class Cliente {
+        ID: int
+        nombre: String
+        direccion: String
+        telefono: String
+        productosComprados: List<Producto>
+        ---
+        realizarCompra()
+        verHistorialCompras()
     }
-    class Rey{
-      +forma
-      +mover(tablero)
+
+    class Compra {
+        ID: int
+        cliente: Cliente
+        productos: List<Producto>
+        total: float
+        fecha: Fecha
+        ---
+        calcularTotal()
+        verDetalles()
     }
-    class Caballo{
-      +forma
-      +mover(tablero)
-    }
-    class Peon{
-      +forma
-      +mover(tablero)
-    }
-    class Reina{
-      +forma
-      +mover(tablero)
-    }
+
 ```
